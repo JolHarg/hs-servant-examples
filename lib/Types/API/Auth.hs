@@ -3,12 +3,12 @@
 
 module Types.API.Auth where
 
-import           Data.Text
-import           Servant.API
-import           Types.Login
-import           Types.Register
-import           Types.User
-import           Web.Cookie     (SetCookie)
+import Data.Text
+import Servant.API
+import Types.Login
+import Types.Register
+import Types.User
+import Web.Cookie     (SetCookie)
 
 type LoginAPI = "login"
     :> ReqBody '[JSON] Login
