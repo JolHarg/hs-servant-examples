@@ -37,12 +37,12 @@ library
     OverloadedStrings
     UnicodeSyntax
 
-  if impl(ghcjs)
+  if (impl(ghcjs) || impl(ghc < 9.2)) 
     ghc-options:
       -Wall -Werror -Weverything -Wno-unsafe -Wno-safe
       -Wno-missing-import-lists -Wno-missing-export-lists
       -Wno-implicit-prelude -Wno-missing-local-signatures
-      -Wno-missing-safe-haskell-mode
+      -Wno-missing-safe-haskell-mode -Wno-all-missed-specialisations -Wno-missed-specialisations
 
   else
     ghc-options:
@@ -50,6 +50,7 @@ library
       -Wno-missing-import-lists -Wno-missing-export-lists
       -Wno-implicit-prelude -Wno-missing-local-signatures
       -Wno-missing-safe-haskell-mode -Wno-missing-kind-signatures
+      -Wno-all-missed-specialisations -Wno-missed-specialisations
 
 test-suite jolharg-servant-examples-test
   hs-source-dirs:     test
@@ -64,12 +65,13 @@ test-suite jolharg-servant-examples-test
 
   main-is:            Spec.hs
 
-  if impl(ghcjs)
+  if (impl(ghcjs) || impl(ghc < 9.2)) 
     ghc-options:
       -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -Weverything
       -Wno-unsafe -Wno-safe -Wno-missing-import-lists
       -Wno-missing-export-lists -Wno-implicit-prelude
-      -Wno-missing-local-signatures
+      -Wno-missing-safe-haskell-mode
+      -Wno-missing-local-signatures -Wno-all-missed-specialisations -Wno-missed-specialisations
 
   else
     ghc-options:
@@ -77,7 +79,7 @@ test-suite jolharg-servant-examples-test
       -Wno-unsafe -Wno-safe -Wno-missing-import-lists
       -Wno-missing-export-lists -Wno-implicit-prelude
       -Wno-missing-local-signatures -Wno-missing-safe-haskell-mode
-      -Wno-missing-kind-signatures
+      -Wno-missing-kind-signatures -Wno-all-missed-specialisations -Wno-missed-specialisations
 
   build-depends:
     , base   >=4.12 && <5
