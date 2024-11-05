@@ -44,7 +44,9 @@ library
       -Wno-implicit-prelude -Wno-missing-local-signatures
       -Wno-missing-safe-haskell-mode -Wno-all-missed-specialisations
       -Wno-missed-specialisations -Wno-prepositive-qualified-module
-      -Wno-missing-role-annotations -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags -Wno-missed-specialisations
+      -Wno-missing-role-annotations -Wno-missing-kind-signatures
+      -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
+      -Wno-missed-specialisations
 
   else
     ghc-options:
@@ -54,7 +56,9 @@ library
       -Wno-missing-safe-haskell-mode -Wno-missing-kind-signatures
       -Wno-missing-poly-kind-signatures -Wno-all-missed-specialisations
       -Wno-missed-specialisations -Wno-prepositive-qualified-module
-      -Wno-missing-role-annotations -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags -Wno-missed-specialisations
+      -Wno-missing-role-annotations -Wno-missing-kind-signatures
+      -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags
+      -Wno-missed-specialisations
 
 test-suite jolharg-servant-examples-test
   hs-source-dirs:     test
@@ -66,7 +70,9 @@ test-suite jolharg-servant-examples-test
     NoGeneralisedNewtypeDeriving
     OverloadedStrings
     UnicodeSyntax
+
   main-is:            Spec.hs
+
   if (impl(ghcjs) || impl(ghc <9.2))
     ghc-options:
       -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -Weverything
@@ -74,8 +80,10 @@ test-suite jolharg-servant-examples-test
       -Wno-missing-export-lists -Wno-implicit-prelude
       -Wno-missing-safe-haskell-mode -Wno-missing-local-signatures
       -Wno-all-missed-specialisations -Wno-missed-specialisations
-      -Wno-prepositive-qualified-module
-      -Wno-missing-role-annotations -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags -Wno-missed-specialisations
+      -Wno-prepositive-qualified-module -Wno-missing-role-annotations
+      -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
+      -Wno-unrecognised-warning-flags -Wno-missed-specialisations
+
   else
     ghc-options:
       -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -Weverything
@@ -84,11 +92,14 @@ test-suite jolharg-servant-examples-test
       -Wno-missing-local-signatures -Wno-missing-safe-haskell-mode
       -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
       -Wno-all-missed-specialisations -Wno-missed-specialisations
-      -Wno-prepositive-qualified-module
-      -Wno-missing-role-annotations -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures -Wno-unrecognised-warning-flags -Wno-missed-specialisations
+      -Wno-prepositive-qualified-module -Wno-missing-role-annotations
+      -Wno-missing-kind-signatures -Wno-missing-poly-kind-signatures
+      -Wno-unrecognised-warning-flags -Wno-missed-specialisations
+
   build-depends:
     , base   >=4.12 && <5
     , hspec
+
   -- , jolharg-servant-examples
   -- , hspec-core
   -- , hspec-expectations
