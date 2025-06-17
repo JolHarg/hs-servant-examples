@@ -1,9 +1,11 @@
 {-# LANGUAGE DataKinds     #-}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE TypeOperators #-}
 
 module Types.API.Auth where
 
 import Data.Text
+import GHC.Generics
 import Servant.API
 import Types.Login
 import Types.Register
@@ -27,4 +29,9 @@ type ForgotAPI = "forgot"
     :> ReqBody '[JSON] Login
     :> GetNoContent
 
-type AuthAPI = LoginAPI :<|> RegisterAPI :<|> VerifyAPI :<|> ForgotAPI
+data AuthAPI mode = AuthAPI {
+    loginRoute    :: mode :- LoginAPI,
+    registerRoute :: mode :- RegisterAPI,
+    verifyRoute   :: mode :- VerifyAPI,
+    forgotRoute   :: mode :- ForgotAPI
+} deriving stock Generic
