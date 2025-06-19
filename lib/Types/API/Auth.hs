@@ -1,7 +1,3 @@
-{-# LANGUAGE DataKinds     #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE TypeOperators #-}
-
 module Types.API.Auth where
 
 import Data.Text

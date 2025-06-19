@@ -1,6 +1,4 @@
-{-# LANGUAGE DataKinds       #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeOperators   #-}
 
 module Types.API.Users where
 
