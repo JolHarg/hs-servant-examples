@@ -6,4 +6,4 @@ import Data.Model.User
 import Types.API.TH
 import Types.User
 
-defineRESTTypes modelUser
+defineReadRESTTypes modelUser
