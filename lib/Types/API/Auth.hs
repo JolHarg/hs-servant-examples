@@ -12,8 +12,8 @@ type LoginAPI = "login"
     :> ReqBody '[JSON] Login
     :> Post '[JSON] (Headers '[Header "Set-Cookie" SetCookie, Header "Set-Cookie" SetCookie] (Maybe User))
 
-type LogoutAPI = "login"
-    :> Post '[JSON] (Headers '[Header "Set-Cookie" SetCookie, Header "Set-Cookie" SetCookie] ())
+type LogoutAPI = "logout"
+    :> Get '[JSON] (Headers '[Header "Set-Cookie" SetCookie, Header "Set-Cookie" SetCookie] ())
 
 -- @TODO
 type RegisterAPI = "register"
