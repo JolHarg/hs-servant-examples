@@ -12,6 +12,9 @@ type LoginAPI = "login"
     :> ReqBody '[JSON] Login
     :> Post '[JSON] (Headers '[Header "Set-Cookie" SetCookie, Header "Set-Cookie" SetCookie] (Maybe User))
 
+type LogoutAPI = "login"
+    :> Post '[JSON] (Headers '[Header "Set-Cookie" SetCookie, Header "Set-Cookie" SetCookie] ())
+
 -- @TODO
 type RegisterAPI = "register"
     :> ReqBody '[JSON] Register
@@ -27,6 +30,7 @@ type ForgotAPI = "forgot"
 
 data AuthAPI mode = AuthAPI {
     loginRoute    :: mode :- LoginAPI,
+    logoutRoute   :: mode :- LogoutAPI,
     registerRoute :: mode :- RegisterAPI,
     verifyRoute   :: mode :- VerifyAPI,
     forgotRoute   :: mode :- ForgotAPI
